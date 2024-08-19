@@ -1,4 +1,4 @@
-# Hash Functions 
+# Hashlib and Hash Functions 
 
 ## the files can be used in these ways:
 
