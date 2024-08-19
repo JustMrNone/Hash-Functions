@@ -5,8 +5,11 @@ class HashFile:
     def __init__(self, filename, hash_type):
         self.filename = filename
         self.buff_size = 65536  # Buffer size for reading file
-        self.hash = hash_type  # Initialized with a hash object
-            
+        
+        if hash_type == None:
+            self.hash = hashlib.sha256()
+        else:
+            self.hash = hash_type  # Initialized with a hash object
     def hash_file(self):
         try:
             with open(self.filename, "rb") as f:
@@ -31,9 +34,16 @@ class HashChoice:
             sys.exit(1)
             
 def main():
-    if len(sys.argv) < 3:
+    if len(sys.argv) < 2:
         #When no Argv
         print("Available hash algorithms:", hashlib.algorithms_guaranteed)
+        
+    
+    elif len(sys.argv) < 3:
+        hash_default = HashFile(sys.argv[1], None)
+        print(f"Hash Value: {hash_default.hash_file()}")
+        print("Hash Type: default(sha256)")
+            
     else:
         # Get the hash function based on the user's choice
         what_hash = HashChoice(sys.argv[2]).type
@@ -43,7 +53,9 @@ def main():
     
         # Compute and print the hash
         hashed = hash_file_obj.hash_file()
-        print(f'Hash: {hashed}')
+        print(f'Hash Value: {hashed}')
+        print(f'Hash Type: {sys.argv[2]}' )
+       
 
 if __name__ == "__main__":
     main()

@@ -1,5 +1,5 @@
 import hashlib
-
+import sys
 #we made this
 import hash 
 
@@ -8,12 +8,17 @@ def main():
     
     try:
         try:
-            hash_type = input()
-            string_obj = input()
-        except: 
-            print("Error: Invalid input. Please provide a valid hash type and string.")
-            return False
-        
+            hash_type = input("Choose Your Hash Function (default=sha256): ")
+            if not hash_type:
+                hash_type = 'sha256'
+            if hash_type == 'show algorithms':
+                print(hashlib.algorithms_available)
+                sys.exit()
+                
+            string_obj = input("enter your string: ").strip()
+            
+        except AttributeError:
+            print(f"Error: Unsupported hash type '{hash_type}'.")
         
         hashfunc = hash.HashChoice(hash_type)
 
@@ -26,8 +31,11 @@ def main():
         result = hashed.hexdigest()
         print(f"Hash Value: {result}")
         print(f"We used {hash_type}")
-    except:
-        print("An error occurred while executing the program.")
-
+        
+        
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        
+        
 if __name__ == "__main__":
     main()
