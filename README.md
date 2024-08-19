@@ -1,6 +1,6 @@
 # Hash Functions 
 
-* the files can be used in these ways:
+## the files can be used in these ways:
 
 - python hash.py gives you the list of available algoritms
 
