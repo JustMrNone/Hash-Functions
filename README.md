@@ -4,7 +4,7 @@
 
 - python hash.py gives you the list of available algoritms
 
-- python hash.py file.txt hashfunction(e.g sha256)
+- python hash.py file.txt hashfunction(e.g sha256) takes file and hashfunction as input and produces output 
 
 ## or run:
 
