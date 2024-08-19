@@ -15,6 +15,7 @@ class HashFile:
                     if not data:
                         break
                     self.hash.update(data)
+            #make it readable 
             return self.hash.hexdigest()
         except FileNotFoundError:
             print(f"File '{self.filename}' not found.")
@@ -31,6 +32,7 @@ class HashChoice:
             
 def main():
     if len(sys.argv) < 3:
+        #When no Argv
         print("Available hash algorithms:", hashlib.algorithms_guaranteed)
     else:
         # Get the hash function based on the user's choice
