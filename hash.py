@@ -9,7 +9,7 @@ class HashFile:
         if hash_type == None:
             self.hash = hashlib.sha256()
         else:
-            self.hash = hash_type  # Initialized with a hash object
+            self.hash = hash_type 
     def hash_file(self):
         try:
             with open(self.filename, "rb") as f:
@@ -26,8 +26,9 @@ class HashFile:
 
 class HashChoice:
     def __init__(self, hash_type):
-        self.hash_type = hash_type.lower()  # Case insensitive check
+        self.hash_type = hash_type.lower()  
         if self.hash_type in hashlib.algorithms_available:
+            
             self.type = getattr(hashlib, self.hash_type)()  # Create the hash object
         else:
             print(f"Unsupported hash type: {hash_type}")

@@ -1,0 +1,20 @@
+1 - .read(file)
+
+2 - for line in file: append line to the list
+
+3 - choice of hashing = input()
+
+4 - if the input is None: default = sha256 
+
+5 - hash each item in the list with the chosen hashing algorithm
+
+6 - dictionary = {input value : the hash value}
+
+7 - print("enter 1 to print to console leave empty to save the csv") ??
+
+8 - if 1 print the dictionary
+
+9 - else save the dictionary to a csv file
+
+10 - sys.exit(1)
+
