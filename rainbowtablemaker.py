@@ -2,6 +2,7 @@ import hashlib
 import hash
 import sys
 import csv
+
 #I should think about this 
 
 
@@ -41,39 +42,44 @@ class RainBow():
                 writer.writerow({'Initial_Value': initial, 'Hashed_Value': hashed})
 
 def main():
-    try:
-        filename = input()
-        while not filename:
-            filename = input("Please enter a filename: ")
+    
+    if len(sys.argv) > 1:
+        try:
+            filename = input()
+            while not filename:
+                filename = input("Please enter a filename: ")
+                
+        except Exception as e:
+            print(e)
+            sys.exit(1)
             
-    except Exception as e:
-        print(e)
-        sys.exit(1)
+        intake = input('choose your hashing method(default sha256): ')
+        if not intake:
+            intake = 'sha256'
+            
+        #construct that shit    
+        cons = RainBow(filename)
         
-    intake = input('choose your hashing method(default sha256): ')
-    if not intake:
-        intake = 'sha256'
+        the_list = cons.savelines()
         
-    #construct that shit    
-    cons = RainBow(filename)
-    
-    the_list = cons.savelines()
-    
-    hashed_list = []
-    for line in the_list:
-        hashe_value = cons.hashit(intake, line)
-        hashed_list.append(hashe_value)
-    
-    #print(hashed_list)
-    
-    the_dict = cons.saveitdic(the_list, hashed_list)
-    
+        hashed_list = []
+        for line in the_list:
+            hashe_value = cons.hashit(intake, line)
+            hashed_list.append(hashe_value)
+        
+        #print(hashed_list)
+        
+        the_dict = cons.saveitdic(the_list, hashed_list)
+        
 
-    #debug that shit
-    
-    #print(the_dict)
-    newname = filename.split('.')
-    cons.savecsv(newname, the_dict)
+        #debug that shit
+        
+        #print(the_dict)
+        newname = filename.split('.')
+        cons.savecsv(newname, the_dict)
+    else:
+        #make it command line accessable will do later
+        pass
 
         
 if __name__ == "__main__":

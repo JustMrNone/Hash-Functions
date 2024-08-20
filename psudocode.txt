@@ -1,3 +1,4 @@
+
 1 - .read(file)
 
 2 - for line in file: append line to the list
@@ -16,5 +17,7 @@
 
 9 - else save the dictionary to a csv file
 
-10 - sys.exit(1)
+10 - sys.exit(1)'
+
+11 - add command line accessibility 
 
