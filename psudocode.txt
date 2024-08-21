@@ -1,3 +1,4 @@
+CreateRainbow
 
 1 - .read(file)
 
@@ -20,4 +21,14 @@
 10 - sys.exit(1)'
 
 11 - add command line accessibility 
+
+Reverse.py
+
+1 - take the rainbow table
+2 - take the hash values
+3 - compare with the hash values in the table
+4 - if the hashvalue exists get the corresonding value
+5 - create a dictionary of found values 
+5 - if the hash value is not in the database 
+6 - print("value not found")
 
