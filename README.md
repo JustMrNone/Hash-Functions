@@ -43,7 +43,7 @@ The `Reverse.py` script reads a list of hash values from a file and compares the
 To hash file contents using a specific hash algorithm:
 
 ```sh
-python CreateRainbow.py <filename> <hash_algorithm>
+   python CreateRainbow.py <filename> <hash_algorithm>
 ```
 
 **To compare hash values with a dictionary and output the results to a CSV file:**
@@ -60,6 +60,6 @@ python CreateRainbow.py <filename> <hash_algorithm>
 To compare hash values stored in hashvalues.txt with the dictionary in output.csv, and save the matched results in a new CSV file:
 
 ```sh
-python Reverse.py hashvalues.txt output.csv
+   python Reverse.py hashvalues.txt output.csv
 ```
 
