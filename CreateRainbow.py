@@ -33,7 +33,7 @@ class RainBow():
         return Dictio
     
     def savecsv(self, newname, data_dict):
-        csv_file = newname[0] + ".csv"
+        csv_file = newname + ".csv"
         with open(csv_file, 'w', newline='') as csvfile:
             field_names = ['Initial_Value', 'Hashed_Value']
             writer = csv.DictWriter(csvfile, fieldnames=field_names)
@@ -86,8 +86,9 @@ def main():
         the_dict = cons.saveitdic(the_list, hashed_list)
         
         # save dictionary to CSV
-        newname = filename.split('.')
-        cons.savecsv(newname, the_dict)
+        #uncomment this to use the initial file name 
+        #newname = filename.split('.')
+        cons.savecsv('output', the_dict)
     
     except FileNotFoundError:
         print("File not found. Make sure that it is in your directory.")
