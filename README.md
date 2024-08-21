@@ -1,17 +1,34 @@
-# Hashlib and Hash Functions 
+# Rainbow Hashing Script
 
-## the files can be used in these ways:'
--python ranbowtablemaker.py filename takes a .txt file and give the rainbow table in .csv
+## Overview
 
-- python hash.py gives you the list of available algoritms
+The `CreateRainbow.py` script hashes each line of a given text file using various hashing algorithms. The hashed values are then saved in a CSV file alongside the original text.
 
-- python hash.py file.txt hashfunction(e.g sha256) takes file and hashfunction as input and produces output 
+## Features
 
-## or run:
+- Supports multiple hashing algorithms (e.g., `sha256`, `md5`).
+- Outputs hashed values to a CSV file.
+- Lists available hashing algorithms on request.
 
-- python anotherhash.py to pass the values it as a string
-- enter show algorithms as the first argument to see algorithms 
+## Requirements
 
+- Python 3.x
+- `hashlib` (part of Python standard library)
+- `csv` (part of Python standard library)
 
-feel free to optimize and refine the code
-fork and I will add it 
+## Usage
+
+### Command-Line Usage
+
+**To list available hash algorithms:**
+
+```sh
+   python CreateRainbow.py print
+```
+
+**To hash a file and save the results to a CSV file:**
+To hash file contents using a specific hash algorithm:
+
+```sh
+python CreateRainbow.py <filename> <hash_algorithm>
+```
