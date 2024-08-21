@@ -49,27 +49,41 @@ class Reverse:
                 writer = csv.writer(file)
                 writer.writerow(["Nothing found"])
 
-def main():
-    
+def cmdargment():
+    """Handle command-line arguments or prompt for user input."""
     if len(sys.argv) > 1:
         filename = sys.argv[1]
     else:
-        filename = input("Enter File Name(.txt): ")
-    try:
-        if len(sys.argv) > 2:
-            csvname = sys.argv[2]
-        else:
-            csvname = input("Enter CSV Name(.csv): ")
-            
-    except FileNotFoundError:
-        print("File Not Found! ")
-        
-        
+        filename = input("Enter File Name (.txt): ")
+    
+    if len(sys.argv) > 2:
+        csvname = sys.argv[2]
+    else:
+        csvname = input("Enter CSV Name (.csv): ")
+    
+    # check if the files exist
+    if not os.path.isfile(filename):
+        print(f"Error: Text File '{filename}' not found.")
+        sys.exit(1)
+    
+    if not os.path.isfile(csvname):
+        print(f"Error: CSV file '{csvname}' not found.")
+        sys.exit(1)
+    
+    return filename, csvname
+
+
+def main():
+    filename, csvname = cmdargment()
+    # construct the object 
     rev = Reverse(filename, csvname)
+    # read the lines
     line_redear = rev.read_lines()
+    # extract the name
     thename = filename.split('.')
+    # finilize the process
     rev.compare_and_save(line_redear, thename[0]+'.csv')
 
-
+# only run main function if run directly
 if __name__ == "__main__":
     main()
