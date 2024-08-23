@@ -63,4 +63,6 @@ To compare hash values stored in hashvalues.txt with the dictionary in output.cs
    python Reverse.py hashvalues.txt output.csv
 ```
 
+### And
+
 lists directory provides you with over 1M used passphrases, you can leverage on that or add your own list.
